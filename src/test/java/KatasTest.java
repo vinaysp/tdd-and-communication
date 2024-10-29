@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class KatasTest {
-
     Katas katas;
 
     @BeforeEach
@@ -32,8 +31,6 @@ class KatasTest {
                 ()-> assertEquals(expectedOutput, result3),
                 ()-> assertEquals(expectedOutput, result4)
                 );
-
-
     }
 
     @Test
@@ -56,14 +53,13 @@ class KatasTest {
         int expectedOutput3 = 2;
         int expectedOutput4 = 3350;
 
-        assertAll("Grouped Assertions for sumMiddleNumbers with invalid inputs",
+        assertAll("Grouped Assertions for sumMiddleNumbers with valid inputs",
                 ()-> assertEquals(expectedOutput1, result1),
                 ()-> assertEquals(expectedOutput2, result2),
                 ()-> assertEquals(expectedOutput3, result3),
                 ()-> assertEquals(expectedOutput4, result4)
 
         );
-
     }
 
 
@@ -107,5 +103,60 @@ class KatasTest {
                 () -> assertEquals(expectedOutput3, result3),
                 () -> assertEquals(expectedOutput4, result4)
                 );
+    }
+
+    @Test
+    @DisplayName("sumOfASCIIValuesInString: should return 0 with empty/null input")
+    public void testSumOfASCIIValuesInStringReturnsZeroWithInvalidInputs() {
+        String input1 = "";
+
+        var result1 = katas.sumOfASCIIValuesInString(input1);
+        var result2 = katas.sumOfASCIIValuesInString(null);
+
+        assertAll("Grouped Assertions for sumOfASCIIValuesInString with invalid inputs",
+                () -> assertEquals(0, result1),
+                () -> assertEquals(0, result2)
+                );
+    }
+
+
+    @Test
+    @DisplayName("sumOfASCIIValuesInString: should return sum of all chars as ASCII values in a string exlucding special characters")
+    public void testSumOfASCIIValuesInStringReturnsSumExcludingSpecialCharacters() {
+        String input1 = "Hell[o";
+        String input2 = "33.asdfghjkl[[";
+
+        var result1 = katas.sumOfASCIIValuesInString(input1);
+        var result2 = katas.sumOfASCIIValuesInString(input2);
+
+        int expectedOutput1 = 500;
+        int expectedOutput2 = 1044;
+
+        assertAll("Grouped Assertions for sumOfASCIIValuesInString with invalid inputs",
+                () -> assertEquals(expectedOutput1, result1),
+                () -> assertEquals(expectedOutput2, result2)
+        );
+    }
+
+    @Test
+    @DisplayName("sumOfASCIIValuesInString: should return sum of all chars as ASCII values in a string")
+    public void testSumOfASCIIValuesInStringReturnsSumWithValidInputs() {
+        String input1 = "hHello123";
+        String input2 = "overwhelming";
+        String input3 = "123asdjhasjd23h23h42342bn4234";
+
+        var result1 = katas.sumOfASCIIValuesInString(input1);
+        var result2 = katas.sumOfASCIIValuesInString(input2);
+        var result3 = katas.sumOfASCIIValuesInString(input3);
+
+        int expectedOutput1 = 754;
+        int expectedOutput2 = 1303;
+        int expectedOutput3 = 2168;
+
+        assertAll("Grouped Assertions for sumOfASCIIValuesInString with valid inputs",
+                () -> assertEquals(expectedOutput1, result1),
+                () -> assertEquals(expectedOutput2, result2),
+                () -> assertEquals(expectedOutput3, result3)
+        );
     }
 }
