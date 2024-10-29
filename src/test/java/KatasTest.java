@@ -67,4 +67,45 @@ class KatasTest {
     }
 
 
+    @Test
+    @DisplayName("calculateMean: should return 0.0 if given invalid input")
+    public void testCalculateMeanReturnsZeroWithInvalidInput() {
+        int[] input = {};
+
+        var result1 = katas.calculateMean(input);
+        var result2 = katas.calculateMean(null);
+
+        double expectedOutput = 0.0;
+
+        assertAll("Grouped Assertions for calculateMean with invalid inputs",
+                () -> assertEquals(expectedOutput, result1),
+                () -> assertEquals(expectedOutput, result2)
+        );
+    }
+
+    @Test
+    @DisplayName("calculateMean:")
+    public void testCalculateMean() {
+        int[] input1 = {1, 2, 3};
+        int[] input2 = {40, 16, 5, 8};
+        int[] input3 = {0, 0, 0, 0, 0, 0, 0};
+        int[] input4 = {0, 1, 0, 0, 0};
+
+        var result1 = katas.calculateMean(input1);
+        var result2 = katas.calculateMean(input2);
+        var result3 = katas.calculateMean(input3);
+        var result4 = katas.calculateMean(input4);
+
+        double expectedOutput1 = 2;
+        double expectedOutput2 = 17.25;
+        double expectedOutput3 = 0;
+        double expectedOutput4 = 0.2;
+
+        assertAll("Grouped Assertions for calculateMean with valid inputs",
+                () -> assertEquals(expectedOutput1, result1),
+                () -> assertEquals(expectedOutput2, result2),
+                () -> assertEquals(expectedOutput3, result3),
+                () -> assertEquals(expectedOutput4, result4)
+                );
+    }
 }
