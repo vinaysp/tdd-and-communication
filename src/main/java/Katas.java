@@ -59,4 +59,35 @@ public class Katas {
 
         return sum;
     }
+
+    public Review studentLectureLikeOrDislike(Review[] reviews) {
+        if (reviews == null) {
+            return null;
+        }
+
+        int dislikeCount = 0;
+        int likeCount = 0;
+
+        for (Review review : reviews) {
+            if (review == Review.DISLIKE) {
+                dislikeCount++;
+            } else if (review == Review.LIKE) {
+                likeCount++;
+            }
+        }
+
+        if (dislikeCount % 2 == 0) {
+            dislikeCount = 0;
+        }
+
+        if (likeCount % 2 == 0) {
+            likeCount = 0;
+        }
+
+        if (likeCount == dislikeCount) {
+            return Review.NEUTRAL;
+        }
+
+        return likeCount > dislikeCount ? Review.LIKE : Review.DISLIKE;
+    }
 }
