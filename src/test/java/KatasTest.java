@@ -121,7 +121,7 @@ class KatasTest {
 
 
     @Test
-    @DisplayName("sumOfASCIIValuesInString: should return sum of all chars as ASCII values in a string exlucding special characters")
+    @DisplayName("sumOfASCIIValuesInString: should return sum of all chars as ASCII values in a string excluding special characters")
     public void testSumOfASCIIValuesInStringReturnsSumExcludingSpecialCharacters() {
         String input1 = "Hell[o";
         String input2 = "33.asdfghjkl[[";
@@ -132,7 +132,7 @@ class KatasTest {
         int expectedOutput1 = 500;
         int expectedOutput2 = 1044;
 
-        assertAll("Grouped Assertions for sumOfASCIIValuesInString with invalid inputs",
+        assertAll("Grouped Assertions for sumOfASCIIValuesInString with valid inputs containing special characters",
                 () -> assertEquals(expectedOutput1, result1),
                 () -> assertEquals(expectedOutput2, result2)
         );
