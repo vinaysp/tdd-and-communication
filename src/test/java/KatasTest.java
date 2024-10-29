@@ -171,11 +171,11 @@ class KatasTest {
     @Test
     @DisplayName("studentLectureLikeOrDislike: should return NEUTRAL if LIKE & DISLIKE count are the same")
     public void testStudentLectureLikeOrDislikeReturnsNEUTRALWithValidInput() {
-        Enum<Review>[] input1 = new Review[]{Review.LIKE, Review.DISLIKE};
-        Enum<Review>[] input2 = new Review[]{Review.LIKE, Review.LIKE};
-        Enum<Review>[] input3 = new Review[]{Review.DISLIKE, Review.DISLIKE};
-        Enum<Review>[] input4 = new Review[]{Review.LIKE, Review.LIKE, Review.DISLIKE, Review.DISLIKE};
-        Enum<Review>[] input5 = new Review[]{Review.LIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
+        Review[] input1 = {Review.LIKE, Review.DISLIKE};
+        Review[] input2 = {Review.LIKE, Review.LIKE};
+        Review[] input3 = {Review.DISLIKE, Review.DISLIKE};
+        Review[] input4 = {Review.LIKE, Review.LIKE, Review.DISLIKE, Review.DISLIKE};
+        Review[] input5 = {Review.LIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
 
         var result1 = katas.studentLectureLikeOrDislike(input1);
         var result2 = katas.studentLectureLikeOrDislike(input2);
@@ -198,10 +198,10 @@ class KatasTest {
     @Test
     @DisplayName("studentLectureLikeOrDislike: should return LIKE if LIKE count is greater than DISLIKE count")
     public void testStudentLectureLikeOrDislikeReturnsLIKEWithLIKEGreaterThanDISLIKE() {
-        Enum<Review>[] input1 = new Review[]{Review.LIKE};
-        Enum<Review>[] input2 = new Review[]{Review.LIKE, Review.LIKE, Review.LIKE};
-        Enum<Review>[] input3 = new Review[]{Review.LIKE, Review.LIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
-        Enum<Review>[] input4 = new Review[]{Review.DISLIKE, Review.DISLIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
+        Review[] input1 = {Review.LIKE};
+        Review[] input2 = {Review.LIKE, Review.LIKE, Review.LIKE};
+        Review[] input3 = {Review.LIKE, Review.LIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
+        Review[] input4 = {Review.DISLIKE, Review.DISLIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
 
         var result1 = katas.studentLectureLikeOrDislike(input1);
         var result2 = katas.studentLectureLikeOrDislike(input2);
@@ -221,10 +221,10 @@ class KatasTest {
     @Test
     @DisplayName("studentLectureLikeOrDislike: should return DISLIKE if DISLIKE count is greater than LIKE count")
     public void testStudentLectureLikeOrDislikeReturnsDISLIKEWithDISLIKEGreaterThanLIKE() {
-        Enum<Review>[] input1 = new Review[]{Review.DISLIKE};
-        Enum<Review>[] input2 = new Review[]{Review.DISLIKE, Review.DISLIKE, Review.DISLIKE};
-        Enum<Review>[] input3 = new Review[]{Review.DISLIKE, Review.LIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
-        Enum<Review>[] input4 = new Review[]{Review.LIKE, Review.LIKE, Review.LIKE, Review.LIKE, Review.DISLIKE};
+        Review[] input1 = {Review.DISLIKE};
+        Review[] input2 = {Review.DISLIKE, Review.DISLIKE, Review.DISLIKE};
+        Review[] input3 = {Review.DISLIKE, Review.LIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
+        Review[] input4 = {Review.LIKE, Review.LIKE, Review.LIKE, Review.LIKE, Review.DISLIKE};
 
         var result1 = katas.studentLectureLikeOrDislike(input1);
         var result2 = katas.studentLectureLikeOrDislike(input2);
