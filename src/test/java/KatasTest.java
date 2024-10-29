@@ -84,8 +84,8 @@ class KatasTest {
     }
 
     @Test
-    @DisplayName("calculateMean:")
-    public void testCalculateMean() {
+    @DisplayName("calculateMean: should return mean with valid input")
+    public void testCalculateMeanReturnsMeanWithValidInput() {
         int[] input1 = {1, 2, 3};
         int[] input2 = {40, 16, 5, 8};
         int[] input3 = {0, 0, 0, 0, 0, 0, 0};
