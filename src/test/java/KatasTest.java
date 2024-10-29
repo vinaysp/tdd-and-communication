@@ -16,12 +16,11 @@ class KatasTest {
     @DisplayName("sumMiddleNumbers: Should return 0 if given incorrect input")
     public void testSumMiddleNumbersReturnsZeroWithInvalidInput(){
         int[] input1 = {1,2};
-        int[] input2 = null;
         int[] input3 = {1};
         int[] input4 = { 1, 1, 1, 2, 2, 2 ,2 };
 
         var result1 = katas.sumMiddleNumbers(input1);
-        var result2 = katas.sumMiddleNumbers(input2);
+        var result2 = katas.sumMiddleNumbers(null);
         var result3 = katas.sumMiddleNumbers(input3);
         var result4 = katas.sumMiddleNumbers(input4);
 
