@@ -13,10 +13,10 @@ class KatasTest {
 
     @Test
     @DisplayName("sumMiddleNumbers: Should return 0 if given incorrect input")
-    public void testSumMiddleNumbersReturnsZeroWithInvalidInput(){
-        int[] input1 = {1,2};
+    public void testSumMiddleNumbersReturnsZeroWithInvalidInput() {
+        int[] input1 = {1, 2};
         int[] input3 = {1};
-        int[] input4 = { 1, 1, 1, 2, 2, 2 ,2 };
+        int[] input4 = {1, 1, 1, 2, 2, 2, 2};
 
         var result1 = katas.sumMiddleNumbers(input1);
         var result2 = katas.sumMiddleNumbers(null);
@@ -26,20 +26,20 @@ class KatasTest {
         int expectedOutput = 0;
 
         assertAll("Grouped Assertions for sumMiddleNumbers with invalid inputs",
-                ()-> assertEquals(expectedOutput, result1),
-                ()-> assertEquals(expectedOutput, result2),
-                ()-> assertEquals(expectedOutput, result3),
-                ()-> assertEquals(expectedOutput, result4)
-                );
+                () -> assertEquals(expectedOutput, result1),
+                () -> assertEquals(expectedOutput, result2),
+                () -> assertEquals(expectedOutput, result3),
+                () -> assertEquals(expectedOutput, result4)
+        );
     }
 
     @Test
     @DisplayName("sumMiddleNumbers: Should return sum of middle numbers excluding highest and lowest numbers")
-    public void testSumMiddleNumbersReturnsSumOfMiddleNumbers(){
-        int[] input1 = { 5, 2, 6, 10, 22 };
-        int[] input2 = { 1, 2, 3, 4, 5 };
-        int[] input3 = { 1, 2, 3 };
-        int[] input4 = { 10001, 2220, 31, 100, 2, 999 };
+    public void testSumMiddleNumbersReturnsSumOfMiddleNumbers() {
+        int[] input1 = {5, 2, 6, 10, 22};
+        int[] input2 = {1, 2, 3, 4, 5};
+        int[] input3 = {1, 2, 3};
+        int[] input4 = {10001, 2220, 31, 100, 2, 999};
 
 
         var result1 = katas.sumMiddleNumbers(input1);
@@ -54,10 +54,10 @@ class KatasTest {
         int expectedOutput4 = 3350;
 
         assertAll("Grouped Assertions for sumMiddleNumbers with valid inputs",
-                ()-> assertEquals(expectedOutput1, result1),
-                ()-> assertEquals(expectedOutput2, result2),
-                ()-> assertEquals(expectedOutput3, result3),
-                ()-> assertEquals(expectedOutput4, result4)
+                () -> assertEquals(expectedOutput1, result1),
+                () -> assertEquals(expectedOutput2, result2),
+                () -> assertEquals(expectedOutput3, result3),
+                () -> assertEquals(expectedOutput4, result4)
 
         );
     }
@@ -102,7 +102,7 @@ class KatasTest {
                 () -> assertEquals(expectedOutput2, result2),
                 () -> assertEquals(expectedOutput3, result3),
                 () -> assertEquals(expectedOutput4, result4)
-                );
+        );
     }
 
     @Test
@@ -116,7 +116,7 @@ class KatasTest {
         assertAll("Grouped Assertions for sumOfASCIIValuesInString with invalid inputs",
                 () -> assertEquals(0, result1),
                 () -> assertEquals(0, result2)
-                );
+        );
     }
 
 
@@ -159,4 +159,95 @@ class KatasTest {
                 () -> assertEquals(expectedOutput3, result3)
         );
     }
+
+    @Test
+    @DisplayName("studentLectureLikeOrDislike: should return null if input is null")
+    public void testStudentLectureLikeOrDislikeReturnsNullWithNullInput() {
+        var result = katas.studentLectureLikeOrDislike(null);
+
+        assertNull(result);
+    }
+
+    @Test
+    @DisplayName("studentLectureLikeOrDislike: should return NEUTRAL if LIKE & DISLIKE count are the same")
+    public void testStudentLectureLikeOrDislikeReturnsNEUTRALWithValidInput() {
+        Enum<Review>[] input1 = new Review[]{Review.LIKE, Review.DISLIKE};
+        Enum<Review>[] input2 = new Review[]{Review.LIKE, Review.LIKE};
+        Enum<Review>[] input3 = new Review[]{Review.DISLIKE, Review.DISLIKE};
+        Enum<Review>[] input4 = new Review[]{Review.LIKE, Review.LIKE, Review.DISLIKE, Review.DISLIKE};
+        Enum<Review>[] input5 = new Review[]{Review.LIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
+
+        var result1 = katas.studentLectureLikeOrDislike(input1);
+        var result2 = katas.studentLectureLikeOrDislike(input2);
+        var result3 = katas.studentLectureLikeOrDislike(input3);
+        var result4 = katas.studentLectureLikeOrDislike(input4);
+        var result5 = katas.studentLectureLikeOrDislike(input5);
+
+        Review expectedOutput = Review.NEUTRAL;
+
+        assertAll("Grouped Assertions for studentLectureLikeOrDislike with same LIKE & DISLIKE count",
+                () -> assertEquals(expectedOutput, result1),
+                () -> assertEquals(expectedOutput, result2),
+                () -> assertEquals(expectedOutput, result3),
+                () -> assertEquals(expectedOutput, result4),
+                () -> assertEquals(expectedOutput, result5)
+        );
+    }
+
+
+    @Test
+    @DisplayName("studentLectureLikeOrDislike: should return LIKE if LIKE count is greater than DISLIKE count")
+    public void testStudentLectureLikeOrDislikeReturnsLIKEWithLIKEGreaterThanDISLIKE() {
+        Enum<Review>[] input1 = new Review[]{Review.LIKE};
+        Enum<Review>[] input2 = new Review[]{Review.LIKE, Review.LIKE, Review.LIKE};
+        Enum<Review>[] input3 = new Review[]{Review.LIKE, Review.LIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
+        Enum<Review>[] input4 = new Review[]{Review.DISLIKE, Review.DISLIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
+
+        var result1 = katas.studentLectureLikeOrDislike(input1);
+        var result2 = katas.studentLectureLikeOrDislike(input2);
+        var result3 = katas.studentLectureLikeOrDislike(input3);
+        var result4 = katas.studentLectureLikeOrDislike(input4);
+
+        Review expectedOutput = Review.LIKE;
+
+        assertAll("Grouped Assertions for studentLectureLikeOrDislike with greater LIKEs than DISLIKEs",
+                () -> assertEquals(expectedOutput, result1),
+                () -> assertEquals(expectedOutput, result2),
+                () -> assertEquals(expectedOutput, result3),
+                () -> assertEquals(expectedOutput, result4)
+        );
+    }
+
+    @Test
+    @DisplayName("studentLectureLikeOrDislike: should return DISLIKE if DISLIKE count is greater than LIKE count")
+    public void testStudentLectureLikeOrDislikeReturnsDISLIKEWithDISLIKEGreaterThanLIKE() {
+        Enum<Review>[] input1 = new Review[]{Review.DISLIKE};
+        Enum<Review>[] input2 = new Review[]{Review.DISLIKE, Review.DISLIKE, Review.DISLIKE};
+        Enum<Review>[] input3 = new Review[]{Review.DISLIKE, Review.LIKE, Review.DISLIKE, Review.DISLIKE, Review.LIKE};
+        Enum<Review>[] input4 = new Review[]{Review.LIKE, Review.LIKE, Review.LIKE, Review.LIKE, Review.DISLIKE};
+
+        var result1 = katas.studentLectureLikeOrDislike(input1);
+        var result2 = katas.studentLectureLikeOrDislike(input2);
+        var result3 = katas.studentLectureLikeOrDislike(input3);
+        var result4 = katas.studentLectureLikeOrDislike(input4);
+
+        Review expectedOutput = Review.DISLIKE;
+
+        assertAll("Grouped Assertions for studentLectureLikeOrDislike with greater DISLIKEs than LIKEs",
+                () -> assertEquals(expectedOutput, result1),
+                () -> assertEquals(expectedOutput, result2),
+                () -> assertEquals(expectedOutput, result3),
+                () -> assertEquals(expectedOutput, result4)
+        );
+    }
 }
+
+
+
+
+
+
+
+
+
+
