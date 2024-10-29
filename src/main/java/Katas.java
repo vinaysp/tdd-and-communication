@@ -10,7 +10,7 @@ public class Katas {
         int lowestNumber = nums[0];
         int highestNumber = 0;
 
-        for ( int num : nums){
+        for (int num : nums){
             if (num < lowestNumber){
                 lowestNumber = num;
             }
@@ -21,7 +21,7 @@ public class Katas {
         }
 
         for (int num: nums){
-            if ( num > lowestNumber && num < highestNumber){
+            if (num > lowestNumber && num < highestNumber){
                 result += num;
             }
         }
@@ -42,5 +42,21 @@ public class Katas {
         }
 
         return (double) sum / numsLength;
+    }
+
+    public int sumOfASCIIValuesInString(String str) {
+        int sum = 0;
+
+        if (str == null || str.isEmpty()) {
+            return sum;
+        }
+
+        for (char c : str.toCharArray()) {
+            if (Character.isLetter(c) || Character.isDigit(c)) {
+                sum += (int)c;
+            }
+        }
+
+        return sum;
     }
 }
